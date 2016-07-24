@@ -1,0 +1,15 @@
+{
+  "name": "update-cart",
+  "version": "1.0.0",
+  "description": "auto update cart",
+  "main": "update-cart.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "polymer": "*",
+    "paper-input": "PolymerElements/paper-input#cb868e5f64",
+    "paper-item": "PolymerElements/paper-item#37322c05b4"
+  }
+}
