@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "polymer": "*",
-    "paper-input": "PolymerElements/paper-input#cb868e5f64",
-    "paper-item": "PolymerElements/paper-item#37322c05b4"
+    "paper-input": "PolymerElements/paper-input",
+    "paper-item": "PolymerElements/paper-item"
   }
 }
