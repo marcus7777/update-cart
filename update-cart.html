@@ -1,0 +1,34 @@
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../polymer/polymer.html">
+<!--
+  `<update-cart></update-cart>` auto update cart
+  @demo demo.html
+-->
+<dom-module id="update-cart">
+  <template>
+    <style>:host {display:inline-block;}</style>
+    <paper-input label="Qty" value="{{qty}}" type="number" style="width:50px;display:inline-block">
+    </paper-input>
+
+    <paper-item style="width:150px;display:inline-block">price per item {{symbol}}{{price}}</paper-item>
+    <paper-item style="width:100px;display:inline-block">total: {{symbol}}{{total}}</paper-item>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "update-cart",
+    properties:{
+      qty:{
+        type:Number,
+        value:1,
+      },
+      total:{
+        computed:"getTotal(qty,price)",
+      },
+    },
+    getTotal: function(qty,price){
+      return qty * price
+    },
+  })
+</script>
