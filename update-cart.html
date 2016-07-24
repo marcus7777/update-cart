@@ -8,7 +8,7 @@
 <dom-module id="update-cart">
   <template>
     <style>:host {display:inline-block;}</style>
-    <paper-input label="Qty" value="{{qty}}" type="number" style="width:50px;display:inline-block">
+    <paper-input label="Qty" min=0 value="{{qty}}" type="number" style="width:50px;display:inline-block">
     </paper-input>
 
     <paper-item style="width:150px;display:inline-block">price per item {{symbol}}{{price}}</paper-item>
