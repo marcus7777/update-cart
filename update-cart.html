@@ -37,7 +37,7 @@
       var totalAsText = this.queryAllEffectiveChildren('*')[0].children[2].children[0].innerText
       this.symbol = totalAsText[0]
       this.price = totalAsText.split(",").join("").split("").splice(1).join("")/this.qty
-      // this.queryEffectiveChildren('*').hidden = true
+      this.queryEffectiveChildren('*').hidden = true
     },
     pageUpdate: function(undefined){
       this.queryAllEffectiveChildren('*')[0].children[1].children[0].children[0].children[0].value = this.qty
