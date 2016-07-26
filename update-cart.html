@@ -7,13 +7,11 @@
 -->
 <dom-module id="update-cart">
   <template>
-    <style>:host {display:inline-block;}</style>
-
-    <paper-input label="Qty" min=0 value="{{qty}}" type="number" style="width:50px;display:inline-block">
-    </paper-input>
-    <paper-item style="width:150px;display:inline-block">price per item {{symbol}}{{price}}</paper-item>
-    <paper-item style="width:100px;display:inline-block">total: {{symbol}}{{total}}</paper-item>
-    <content></content>
+    <style>:host {display:inline-block}</style>
+    <span style="display:inline-block;padding-right:1em"><content></content></span>
+    <paper-item style="width:150px;display:inline-block">Price {{symbol}}{{price}}</paper-item>
+    <paper-input label="Quantity" min=0 value="{{qty}}" type="number" style="width:50px;display:inline-block"></paper-input>
+    <paper-item style="width:100px;display:inline-block">Total: {{symbol}}{{total}}</paper-item>
   </template>
 </dom-module>
 <script>
@@ -37,7 +35,8 @@
       var totalAsText = this.queryAllEffectiveChildren('*')[0].children[2].children[0].innerText
       this.symbol = totalAsText[0]
       this.price = totalAsText.split(",").join("").split("").splice(1).join("")/this.qty
-      this.queryEffectiveChildren('*').hidden = true
+      this.queryAllEffectiveChildren('*')[0].children[2].hidden = true
+      this.queryAllEffectiveChildren('*')[0].children[1].hidden = true
     },
     pageUpdate: function(undefined){
       this.queryAllEffectiveChildren('*')[0].children[1].children[0].children[0].children[0].value = this.qty
