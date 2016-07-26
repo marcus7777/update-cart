@@ -8,6 +8,7 @@
 <dom-module id="update-cart">
   <template>
     <style>:host {display:inline-block;}</style>
+
     <paper-input label="Qty" min=0 value="{{qty}}" type="number" style="width:50px;display:inline-block">
     </paper-input>
     <paper-item style="width:150px;display:inline-block">price per item {{symbol}}{{price}}</paper-item>
@@ -22,6 +23,7 @@
       qty:{
         type:Number,
         value:1,
+        observer:"pageUpdate",
       },
       total:{
         computed:"getTotal(qty,price)",
@@ -30,12 +32,15 @@
     getTotal: function(qty,price){
       return qty * price
     },
-    ready: function(){
+    ready: function(undefined){
       this.qty = this.queryAllEffectiveChildren('*')[0].children[1].children[0].children[0].children[0].value
       var totalAsText = this.queryAllEffectiveChildren('*')[0].children[2].children[0].innerText
       this.symbol = totalAsText[0]
       this.price = totalAsText.split(",").join("").split("").splice(1).join("")/this.qty
-      this.queryEffectiveChildren('*').hidden = true
+      // this.queryEffectiveChildren('*').hidden = true
+    },
+    pageUpdate: function(undefined){
+      this.queryAllEffectiveChildren('*')[0].children[1].children[0].children[0].children[0].value = this.qty
     },
   })
 </script>
