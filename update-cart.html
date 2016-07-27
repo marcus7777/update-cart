@@ -5,16 +5,17 @@
   `<update-cart></update-cart>` auto update cart
   @demo demo.html
 -->
+<!--
+  `<update-cart></update-cart>` auto update cart
+  @demo demo.html
+-->
 <dom-module id="update-cart">
   <template>
-    <style>:host {display:inline-block;}</style>
+    <style>:host {display:inline-block}</style>
     <div style="display:inline-block"><content></content></div>
-    <paper-item style="width:150px;display:inline-block">Price {{symbol}}{{price}}</paper-item>
     <paper-input label="Quantity" min=0 value="{{qty}}" type="number" style="width:50px;display:inline-block">
     </paper-input>
     <paper-item style="width:100px;display:inline-block">Total: {{symbol}}{{total}}</paper-item>
-
-
   </template>
 </dom-module>
 <script>
